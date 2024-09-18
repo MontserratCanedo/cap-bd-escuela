@@ -17,7 +17,7 @@ const runExamples = async () => {
     console.log('Maestro con el ID', maestrosByID );
     
     // Actualizar un usuario
-    await maestrosService.updateMaestro(9, 'Sandra', 'Kg');
+    await maestrosService.updateMaestro(9, 'Sandra', 'Lb');
 
     // Eliminar un usuario
     await maestrosService.deleteMaestro(47);
