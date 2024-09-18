@@ -18,7 +18,7 @@ const getAllMaestros = () => {
       resolve(results);
     });
   });
-}
+};
 
 //CONSULTAR MAESTROS POR ID
 const getMaestrosById = (idMaestro) =>{
@@ -58,4 +58,4 @@ module.exports = {
   getMaestrosById,
   updateMaestro,
   deleteMaestro
-}
+};
