@@ -1,20 +1,6 @@
-
-
 const db = require('../utils/conexion');
 
 /*** EN ESTA CLASE SE GUARDAN TODOS LOS MÉTODOS CRUD, QUE REALIZAN LA CONSULTA A LA BD ***/
-
-// // Crear un nuevo usuario
-// const createAlumno = (nombre,apellidos,telefono, status,id_materia) => { // aqui tambien mando id_materia?
-//   return new Promise((resolve, reject) => {
-//     db.query('INSERT INTO alumno (nombre,apellidos,telefono, status, id_materia) VALUES (?, ?, ?, ?, ?)',
-//       [nombre,apellidos,telefono, status, id_materia], ('5', 'Adriana', 'Gonzalez', '55135207411', 'APROBADO', '5')  => {
-//       if (error) return reject(error);
-//       resolve(results.insertId);
-//     });
-//   });
-// };
-
 
 const createAlumno = (nombre, apellidos, telefono, status, id_materia) => {
   return new Promise((resolve, reject) => {
@@ -28,7 +14,6 @@ const createAlumno = (nombre, apellidos, telefono, status, id_materia) => {
   });
 };
 
-
 // Obtener todos los usuarios
 const getAllAlumnos = () => {
   return new Promise((resolve, reject) => {
@@ -39,10 +24,7 @@ const getAllAlumnos = () => {
   });
 };
 
-
-
-
-// Obtener un usuario por ID-------------------------------------------------
+// Obtener un usuario por ID
 const getAlumnoById = (id) => {
   return new Promise((resolve, reject) => {
     db.query('SELECT * FROM alumno WHERE id_alumno = ?', [id], (error, results) => {
@@ -53,24 +35,11 @@ const getAlumnoById = (id) => {
   });
 };
 
-// // Actualizar un usuario existente
-// const updateAlumno = (id,nombre,apellidos, telefono, status,id_materia) => {
-//   return new Promise((resolve, reject) => {
-//     db.query('UPDATE alumno SET id_alumno = ?, nombre = ?, apellidos = ?, telefono = ?, status ?, id_materia, WHERE id = ?', 
-//       [id,nombre,apellidos, telefono, status,id_materia], (error) => {
-//       if (error) return reject(error);
-//       resolve();
-//     });
-//   });
-// };
-
-
 // Actualizar un usuario existente
-const updateAlumno = (id, nombre, apellidos, telefono, status, id_materia) => {
+const updateAlumno = (nombre, apellidos, telefono, status,id_alumno) => {
   return new Promise((resolve, reject) => {
-    db.query(
-      'UPDATE alumno SET nombre = ?, apellidos = ?, telefono = ?, status = ?, id_materia = ? WHERE id_alumno = ?',
-      [nombre, apellidos, telefono, status, id_materia, id],
+    db.query('UPDATE alumno SET  nombre = ?, apellidos = ?, telefono = ?, status = ? WHERE id_alumno = ?',
+      [nombre, apellidos, telefono, status,id_alumno],
       (error, results) => {
         if (error) return reject(error);
         resolve(results.affectedRows); // Devuelve el número de filas afectadas
@@ -79,12 +48,10 @@ const updateAlumno = (id, nombre, apellidos, telefono, status, id_materia) => {
   });
 };
 
-
-
 // Eliminar un usuario
-const deleteAlumno = (id) => {
+const deleteAlumno = (id_alumno, nombre, apellidos, telefono, status, id_materia) => {
   return new Promise((resolve, reject) => {
-    db.query('DELETE FROM alumno WHERE id = ?', [id], (error) => {
+    db.query('DELETE FROM alumno WHERE id_alumno = ?', [id_alumno,nombre, apellidos, telefono, status, id_materia], (error) => {
       if (error) return reject(error);
       resolve();
     });
@@ -96,6 +63,5 @@ module.exports = { // con esta sentencia, exportamos los métodos creados, para 
   createAlumno,
   getAlumnoById,
   updateAlumno,
-  
   deleteAlumno,
 };
