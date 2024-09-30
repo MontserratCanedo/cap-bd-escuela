@@ -19,23 +19,105 @@
             <li><a href="../index.html">Alumnos</a></li>
             <li><a href="pages/maestros.html">Maestros</a></li>
             <li><a href="../pages/materia.html">Materias</a></li>
-            <li><a href="pages/calificaciones.html">Calificaciones</a></li>
+            <li><a href="../pages/calificaciones.html">Calificaciones</a></li>
           </ul>
       </nav>
     </header>
 
     <h1>Información de Calificacion</h1>
 
-    <form id="formulario-alumno">
+    <form id="formulario-alumno" method="POST">
       <h2>Añadir Calificacion</h2>
 
       <label for="nombre">Calificacion:</label>
-
       <input type="text" id="nombre" name="nombre" required /><br />
+      
+      <input type="submit" value="Enviar" onclick="calificacion()">  
 
-      <button type="submit">Añadir Calificacion</button>    
+
       <button type="submit">Actualizar</button>
       <button type="submit" id="delete">Eliminar</button>
+
+      <script>
+
+      
+ 
+         document.getElementById('formulario-alumno').addEventListener ('submit', async (event) => {
+         event.preventDefault(); // Evita que se recargue la página
+    
+    //  Obtener los datos del formulario
+        const nombre = document.getElementById('nombre').value;
+        const apellidos = document.getElementById('apellidos').value;
+        const telefono = document.getElementById('telefono').value;
+        const status = document.getElementById('status').value;
+        const id_materia = document.getElementById('id_materia').value;
+
+           
+         const  response = await fetch('/calificacionesService.js',{
+         method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({id_calificaciones, calificacion}),
+       });
+         
+       document.getElementById('formulario-alumno').addEventListener ('click', async (event) => {
+       event.preventDefault(); // Evita que se recargue la página
+
+        try {
+                        
+          
+        const newCalificacionId = await calificacionService.createCalificacion("13.0");
+        console.log("Calificaciones creadas con el ID: ", newCalificacionId);
+        
+          alert('calificacion agregada exitosamente con ID: ' + newUserId);
+        } catch (error) {
+          console.error('error al crear calificacion:', error);
+          alert('Hubo un error al añadir calificacion.');
+        }
+      });
+
+      
+
+         // Función para cargar todas las materias
+         document.getElementById('cargarMaterias').addEventListener('click', async () => {
+            const response = await fetch('/calificaciones');
+            const materias = await response.json();
+            const tbody = document.getElementById('materiasTableBody');
+            tbody.innerHTML = '';
+
+            materias.forEach((calificaciona) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${materia.id_Materia}</td>
+                    <td>${materia.Nombre_Materia}</td>
+                    <td>
+                        <button onclick="eliminarMateria(${materia.id_Materia})">Eliminar</button>
+                        <button onclick="editarMateria(${materia.id_Materia})">Editar</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }); 
+
+
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+        </script>
     </form>
   </body>
 </html>
+

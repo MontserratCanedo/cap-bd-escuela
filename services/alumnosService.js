@@ -2,6 +2,11 @@ const db = require('../utils/conexion');
 
 /*** EN ESTA CLASE SE GUARDAN TODOS LOS MÉTODOS CRUD, QUE REALIZAN LA CONSULTA A LA BD ***/
 
+
+
+
+
+
 const createAlumno = (nombre, apellidos, telefono, status, id_materia) => {
   return new Promise((resolve, reject) => {
     // Se pasan los parámetros a la consulta
@@ -48,6 +53,7 @@ const updateAlumno = (nombre, apellidos, telefono, status,id_alumno) => {
   });
 };
 
+
 // Eliminar un usuario
 const deleteAlumno = (id_alumno, nombre, apellidos, telefono, status, id_materia) => {
   return new Promise((resolve, reject) => {
@@ -64,4 +70,5 @@ module.exports = { // con esta sentencia, exportamos los métodos creados, para 
   getAlumnoById,
   updateAlumno,
   deleteAlumno,
+
 };

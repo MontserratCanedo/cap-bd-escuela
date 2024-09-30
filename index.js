@@ -1,14 +1,19 @@
 const materiaService = require('./services/materiasService'); //guardamos en una variable, los métodos exportados en alumnosServices
 const calificacionService = require("./services/calificacionesService"); //guardamos en una variable, los métodos exportados en alumnosServices
 const maestrosService = require('./services/maestrosService.js'); //guardamos en una variable, los métodos exportados en alumnosServices
+const userService= require('./services/alumnosService.js');
+
 const db = require('./utils/conexion'); //guardamos en una variable, la conexion a la BD
+
 
 // Ejemplos de uso
 const runExamples = async () => {
   try {
-    // Crear un nuevo usuario
-    const newUserId = await userService.createAlumno('Rosalba' );
-    console.log('Crear Alumno con ID:', newUserId);
+    // // Crear un nuevo usuario
+    // const newUserId = await userService.createAlumno('Job',
+    // 'Pen Dejo', 12345678910,'APROBADO',  );
+    // console.log('Crear Alumno con ID:', newUserId);
+
     // Crear un nuevo usuario
     const nuevaMateria = await materiaService.createMateria('85', 'musica', '1');
     console.log('Nueva materia creada con el  ID:', nuevaMateria);
@@ -50,9 +55,7 @@ const runExamples = async () => {
     console.error('Error:', error.message);
 
     // Crear un nuevo
-    const newCalificacionId = await calificacionService.createCalificacion(
-      "13.0"
-    );
+    const newCalificacionId = await calificacionService.createCalificacion("13.0");
     console.log("Calificaciones creadas con el ID: ", newCalificacionId);
 
     // Obtener todo
@@ -74,9 +77,11 @@ const runExamples = async () => {
     console.log("User with ID", newCalificacionId, "after deletion:", deletedCalificacion);
     
     // Crear un nuevo usuario
-    const newMaestro = await maestrosService.createMaestro('John', 'Doe', 1, 1);
+    const newMaestro = await maestrosService.createMaestro('Johny', 'Doe', 1, 1);
     console.log('Create maestro:', newMaestro);
 
+
+    
     // Obtener todos los usuarios
      const maestros = await maestrosService.getAllMaestros();
     console.log('All maestros', maestros); 
@@ -104,6 +109,7 @@ const runExamples = async () => {
   } finally {
     db.end(); // Cierra la conexión a la base de datos
   }
+ }
 };
 
 runExamples();

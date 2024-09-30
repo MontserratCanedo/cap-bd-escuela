@@ -6,6 +6,7 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <title>Escuela</title>
   </head>
   <body>
@@ -27,33 +28,81 @@
 
     <h1>Información de Alumnos</h1>
 
-    <form id="formulario-alumno">
+      <form id="formulario-alumno" method="POST">
       <h2>Añadir Estudiante</h2>
 
       <label for="nombre">Nombre:</label>
-
       <input type="text" id="nombre" name="nombre" required /><br />
-
-      <label for="edad">Apellidos:</label>
-
-      <input type="number" id="apellido" name="apellido" required /><br />
+        
+      <label for="edad">Apellidos:</label>      
+      <input type="text" id="apellidos" name="apellidos" required /><br />
 
       <label for="curso">Telefono:</label>
+      <input type="text" id="telefono" name="tel" required /><br />
 
-      <input type="text" id="tel" name="tel" required /><br />
+     <label for="status">Selecciona el estado:</label><br>
+     <select name="status" id="status">
+     <option value="aprobado">Aprobado</option>
+     <option value="reprobado">Reprobado</option> 
+     </select>
+     
 
-      <label for="promedio">Status:</label>
+     <label for="promedio">Selecciona la materia:</label><br>
+     <select name="id_materia" id="id_materia">
+     <option value="1">Matematicas</option>
+     <option value="2">Español</option> 
+     <option value="4">Fisica</option> 
+     <option value="5">Quimica</option> 
+     <option value="85">Musica</option> 
 
-      <input type="text" id="status" name="status" required /><br />
+     </select>
+    
+     <input type="submit" value="Enviar" onclick="createAlumno()">
+     </form>
 
+
+<!-- 
       <label for="promedio">Id_materia:</label>
 
       <input type="text" id="id_materia" name="id_materia" required /><br />
+ -->
 
 
-      <button type="submit">Añadir Alumno</button>    
-      <button type="submit">Actualizar</button>
+
+      <button type="submit" id="">Añadir Alumno</button>    
+      <button type="submit" id="">Actualizar</button>
       <button type="submit" id="delete">Eliminar</button>
+
+      <script>
+
+       var formulario = document.getElementById('formulario-alumno');
+
+        document.getElementById('formulario-alumno').addEventListener('submit', async (event) => {
+        event.preventDefault(); 
+        console.log("me diste un click");           
+
+           
+            const nombre = document.getElementById('nombre').value;
+            const apellidos = document.getElementById('apellidos').value;
+            const telefono = document.getElementById('telefono').value;
+            const status = document.getElementById('status').value;
+            const id_materia = document.getElementById('id_materia').value;
+
+            
+
+             try {
+                
+                const newUserId = await userService.createAlumno(nombre, apellidos, telefono, status, );
+                console.log('Crear Alumno con ID:', newUserId);
+                alert('Alumno añadido exitosamente con ID: ' + newUserId);
+            } catch (error) {
+                console.error('Error al crear el alumno:', error);
+                alert('Hubo un error al añadir el alumno.');
+            }
+        });
+
+        
+    </script>
     </form>
   </body>
 </html>
