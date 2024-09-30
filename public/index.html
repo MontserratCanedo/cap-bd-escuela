@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css"   type="text/css" >
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--<link rel="stylesheet" href="./css/style.css"   type="text/css" >--->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./component.js"></script>
     <title>CRUD Materias</title>
 </head>
 <body>
   
 
    
-    <h2>Agregar Materia</h2>
+    <!--<h2>Agregar Materia</h2>
     <form id="formAgregarMateria">
         <label for="id_Materia">ID Materia:</label>
         <input type="text" id="id_Materia" name="id_Materia" required><br><br>
@@ -53,8 +56,9 @@
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ id_Materia, nombre_Materia, id_calificaciones }),
+             
             });
-
+          
         });
 
         // Función para cargar todas las materias
@@ -89,7 +93,12 @@
                 // Recargar la lista de materias
                 document.getElementById('cargarMaterias').click();
             } else {
-                alert('Error al editar la  materia');
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "no se puede editar  !",
+                    footer: '<a href="#">intentalo mas tarde </a>'
+                  });
             }
         }
         // Función para eliminar una materia
@@ -99,13 +108,25 @@
             });
 
             if (response.ok) {
-                alert('Materia eliminada');
+                Swal.fire({
+                    title: "Materia eliminada !",
+                    text: "materia eliminada satisfactoriamente !",
+                    icon: "success"
+                  });
+                
                 // Recargar la lista de materias
                 document.getElementById('cargarMaterias').click();
             } else {
-                alert('Error al eliminar materia');
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "no se puede eliminar !",
+                    footer: '<a href="#">intentalo mas tarde </a>'
+                  });
             }
         }
-    </script>
+    </script>---->
+
+    <component-table></component-table>
 </body>
 </html>

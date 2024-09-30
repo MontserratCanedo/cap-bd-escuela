@@ -77,11 +77,10 @@ const runExamples = async () => {
     await maestrosService.updateMaestro(9, 'Sandra', 'Lb');
     // Eliminar un usuario
     const deletedMaestro = await maestrosService.deleteMaestro(45);
-  } catch (error) {
-    console.error("Error:", error.message);
-  } finally {
+  };
+  
     db.end();
-  }
+  
 };
 
 runExamples();
