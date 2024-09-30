@@ -1,4 +1,4 @@
-import calificacionService from '../services/calificacionesService.js';
+// import calificacionService from '../services/calificacionesService.js';
 // const db = require('../utils/conexion.js');
 
 export default class CostCalificaciones extends HTMLElement {
