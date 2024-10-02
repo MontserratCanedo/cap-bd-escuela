@@ -1,4 +1,56 @@
-:root {
+class CostCalificaciones extends HTMLElement {
+    constructor() {
+        super();
+        this.shadowDOM = this.attachShadow({ mode: 'open' });
+    }
+
+    connectedCallback() {
+        this.createForm1();
+    }
+
+    createForm1() {
+        let form = document.createElement('form');
+        form.id = 'formulario-materia';
+
+        let title = document.createElement('h2');
+        title.textContent = 'Añadir Materia';
+
+        let calificacionLabel = document.createElement('label');
+        calificacionLabel.setAttribute('for', 'calificacion');
+        calificacionLabel.textContent = 'Calificacion:';
+        let calificacionInput = document.createElement('input');
+        calificacionInput.type = 'text';
+        calificacionInput.id = 'calificacion';
+        calificacionInput.name = 'calificacion';
+        calificacionInput.required = true;
+
+
+        let addButton = document.createElement('button');
+        addButton.type = 'submit';
+        addButton.textContent = 'Añadir Alumno';
+
+        let updateButton = document.createElement('button');
+        updateButton.type = 'button';
+        updateButton.textContent = 'Actualizar';
+
+        let deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.id = 'delete';
+        deleteButton.textContent = 'Eliminar';
+
+        
+        form.appendChild(title);
+        form.appendChild(calificacionLabel);
+        form.appendChild(calificacionInput);
+
+        form.appendChild(addButton);
+        form.appendChild(updateButton);
+        form.appendChild(deleteButton);
+
+        
+        const style = document.createElement('style');
+        style.textContent = `
+           :root {
   --main-color: #fff;
 }
 
@@ -188,3 +240,12 @@ th {
 .nombre-col {
   background-color: #ffcc99;
 }
+        `;
+
+        
+        this.shadowDOM.appendChild(style);
+        this.shadowDOM.appendChild(form);
+    }
+}
+
+window.customElements.define('form-calificaciones', CostCalificaciones);

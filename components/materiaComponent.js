@@ -1,4 +1,68 @@
-:root {
+class CostMateria extends HTMLElement {
+    constructor() {
+        super();
+        this.shadowDOM = this.attachShadow({ mode: 'open' });
+    }
+
+    connectedCallback() {
+        this.createForm1();
+    }
+
+    createForm1() {
+        let form = document.createElement('form');
+        form.id = 'formulario-materia';
+
+        let title = document.createElement('h2');
+        title.textContent = 'Añadir Materia';
+//NOMBRE
+        let nombreLabel = document.createElement('label');
+        nombreLabel.setAttribute('for', 'nombre');
+        nombreLabel.textContent = 'Nombre de la Materia:';
+        let nombreInput = document.createElement('input');
+        nombreInput.type = 'text';
+        nombreInput.id = 'nombre';
+        nombreInput.name = 'nombre';
+        nombreInput.required = true;
+
+//CALIFICACIONES
+        let calLabel = document.createElement('label');
+        calLabel.setAttribute('for', 'cal');
+        calLabel.textContent = 'id_alificaciones:';
+        let calInput = document.createElement('input');
+        calInput.type = 'text';
+        calInput.id = 'cal';
+        calInput.name = 'cal';
+        calInput.required = true;
+
+        let addButton = document.createElement('button');
+        addButton.type = 'submit';
+        addButton.textContent = 'Añadir Alumno';
+
+        let updateButton = document.createElement('button');
+        updateButton.type = 'button';
+        updateButton.textContent = 'Actualizar';
+
+        let deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.id = 'delete';
+        deleteButton.textContent = 'Eliminar';
+
+        
+        form.appendChild(title);
+        form.appendChild(nombreLabel);
+        form.appendChild(nombreInput);
+
+        form.appendChild(calLabel);
+        form.appendChild(calInput);
+
+        form.appendChild(addButton);
+        form.appendChild(updateButton);
+        form.appendChild(deleteButton);
+
+        
+        const style = document.createElement('style');
+        style.textContent = `
+           :root {
   --main-color: #fff;
 }
 
@@ -188,3 +252,12 @@ th {
 .nombre-col {
   background-color: #ffcc99;
 }
+        `;
+
+        
+        this.shadowDOM.appendChild(style);
+        this.shadowDOM.appendChild(form);
+    }
+}
+
+window.customElements.define('form-materias', CostMateria);
