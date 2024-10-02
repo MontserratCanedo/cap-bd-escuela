@@ -3,9 +3,9 @@ const db = require('../utils/conexion');
 /*** EN ESTA CLASE SE GUARDAN TODOS LOS MÉTODOS CRUD, QUE REALIZAN LA CONSULTA A LA BD ***/
 
 // Crear un nuevo usuario
-const createMateria = (id_Materia, nombre_Materia, id_calificaciones) => {
+const createMateria = (id_Materia, Nombre_Materia, id_calificaciones) => {
   return new Promise((resolve, reject) => {
-    db.query('INSERT INTO `materia` (id_Materia,Nombre_Materia,Id_calificaciones) VALUES (?, ?, ?)', [id_Materia, nombre_Materia, id_calificaciones], (error, results) => {
+    db.query('INSERT INTO `materia` (id_Materia,Nombre_Materia,Id_calificaciones) VALUES (?, ?, ?)', [id_Materia, Nombre_Materia, id_calificaciones], (error, results) => {
       if (error) return reject(error);
       resolve(results.insertId);
     });
@@ -34,16 +34,15 @@ const getMateriaById = (id) => {
 };
 
 // Actualizar un usuario existente
-const updateMateria = (id_Materia, nombre_Materia) => {
+const updateMateria = (id_Materia, Nombre_Materia) => {
   return new Promise((resolve, reject) => {
-    // Consulta con los parámetros en el orden correcto
-    db.query('UPDATE `materia` SET Nombre_Materia = ? WHERE id_Materia = ?', [nombre_Materia, id_Materia], (error) => {
+    db.query('UPDATE `materia` SET Nombre_Materia = ? WHERE id_Materia = ?', [Nombre_Materia, id_Materia], (error) => {
       if (error) return reject(error);
-      // Resuelve la promesa y devuelve información
       resolve({ message: 'Materia actualizada con éxito', id_Materia });
     });
   });
 };
+
 
 // Eliminar un usuario
 const borrarMateria = (id) => {

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--<link rel="stylesheet" href="./css/style.css"   type="text/css" >--->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./component.js"></script>
+    <title>CRUD Materias</title>
+</head>
+<body>
+  
+
+   
+    <!--<h2>Agregar Materia</h2>
+    <form id="formAgregarMateria">
+        <label for="id_Materia">ID Materia:</label>
+        <input type="text" id="id_Materia" name="id_Materia" required><br><br>
+        <label for="nombre_Materia">Nombre Materia:</label>
+        <input type="text" id="nombre_Materia" name="nombre_Materia" required><br><br>
+        <label for="id_calificaciones">ID Calificaciones:</label>
+        <input type="text" id="id_calificaciones" name="id_calificaciones" required><br><br>
+        <button type="submit">Agregar Materia</button>
+    </form>
+
+    <hr>
+
+
+   
+    <button id="cargarMaterias">Cargar Materias</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID Materia</th>
+                <th>Nombre Materia</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="materiasTableBody">
+   
+        </tbody>
+    </table>
+
+    <script>
+    
+        document.getElementById('formAgregarMateria').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id_Materia = document.getElementById('id_Materia').value;
+            const nombre_Materia = document.getElementById('nombre_Materia').value;
+            const id_calificaciones = document.getElementById('id_calificaciones').value;
+
+            const response = await fetch('/materias', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id_Materia, nombre_Materia, id_calificaciones }),
+             
+            });
+          
+        });
+
+        // Función para cargar todas las materias
+        document.getElementById('cargarMaterias').addEventListener('click', async () => {
+            const response = await fetch('/materias');
+            const materias = await response.json();
+            const tbody = document.getElementById('materiasTableBody');
+            tbody.innerHTML = '';
+
+            materias.forEach((materia) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${materia.id_Materia}</td>
+                    <td>${materia.Nombre_Materia}</td>
+                    <td>
+                        <button onclick="eliminarMateria(${materia.id_Materia})">Eliminar</button>
+                        <button onclick="editarMateria(${materia.id_Materia})">Editar</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        });
+
+        // funcion para editar la materia 
+        async function editarMateria(id_Materia) {
+            const response = await fetch(`/materias/${id_Materia}`, {
+                method: 'UPDATE',
+            });
+
+            if (response.ok) {
+                alert('Materia editada');
+                // Recargar la lista de materias
+                document.getElementById('cargarMaterias').click();
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "no se puede editar  !",
+                    footer: '<a href="#">intentalo mas tarde </a>'
+                  });
+            }
+        }
+        // Función para eliminar una materia
+        async function eliminarMateria(id_Materia) {
+            const response = await fetch(`/materias/${id_Materia}`, {
+                method: 'DELETE',
+            });
+
+            if (response.ok) {
+                Swal.fire({
+                    title: "Materia eliminada !",
+                    text: "materia eliminada satisfactoriamente !",
+                    icon: "success"
+                  });
+                
+                // Recargar la lista de materias
+                document.getElementById('cargarMaterias').click();
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "no se puede eliminar !",
+                    footer: '<a href="#">intentalo mas tarde </a>'
+                  });
+            }
+        }
+    </script>---->
+
+    <component-table></component-table>
+</body>
+</html>

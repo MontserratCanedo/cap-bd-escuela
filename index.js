@@ -9,8 +9,9 @@ const runExamples = async () => {
     // Crear un nuevo usuario
     const newUserId = await userService.createAlumno('Rosalba' );
     console.log('Crear Alumno con ID:', newUserId);
+
     // Crear un nuevo usuario
-    const nuevaMateria = await materiaService.createMateria('85', 'musica', '1');
+    const nuevaMateria = await materiaService.createMateria('100', 'musica', '1');
     console.log('Nueva materia creada con el  ID:', nuevaMateria);
 
     // Obtener todos los usuarios
