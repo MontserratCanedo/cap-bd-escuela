@@ -1,5 +1,7 @@
 // import calificacionService from '../services/calificacionesService.js';
 // const db = require('../utils/conexion.js');
+// import db  from '../utils/conexion.js';
+// import calificacionService from '../services/calificacionesService.js';
 
 export default class CostCalificaciones extends HTMLElement {
   constructor() {
@@ -9,7 +11,6 @@ export default class CostCalificaciones extends HTMLElement {
 
   connectedCallback() {
     this.createForm1();
-    // this.validacionEnvio();
   }
 
   createForm1() {
@@ -260,17 +261,17 @@ export default class CostCalificaciones extends HTMLElement {
     this.shadowDOM.appendChild(form);
   }
 
-  /* runExamples = async () => {
-    try {
-      const pruebaPull = await calificacionService.getAllCalificaciones();
-      console.log(pruebaPull);
+  // example = async () => {
+  //   try {
+  //     const mostrarCalificacion = await calificacionService.getAllCalificaciones();
+  //     console.log(mostrarCalificacion);
       
-
-    } catch (error) {
-      console.error('Error: ', error.message);
-    } finally {
-      db.end();
-    }
-  } */
+      
+  //   } catch (error) {
+  //     console.error('Error: ', error.message);
+  //   } finally {
+  //     db.end()
+  //   }
+  // }
 
 }
