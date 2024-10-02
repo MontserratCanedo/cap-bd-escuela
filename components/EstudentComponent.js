@@ -1,4 +1,4 @@
-export default class TableEstudents extends HTMLElement {
+class TableEstudents extends HTMLElement {
     constructor() {
         super();
         this.shadowDOM = this.attachShadow({ mode: 'open' });
@@ -289,3 +289,7 @@ th {
         this.shadowDOM.appendChild(form);
     }
 }
+
+}
+
+window.customElements.define('form-estudents', TableEstudents);

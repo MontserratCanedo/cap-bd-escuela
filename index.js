@@ -8,73 +8,72 @@ const db = require('./utils/conexion');
 const runExamples = async () => {
   try {
     // Crear un nuevo usuario
-    // const newUserId = await userService.createAlumno('Rosalba' );
-    // console.log('Crear Alumno con ID:', newUserId);
-    // // Crear un nuevo usuario
-    // const nuevaMateria = await materiaService.createMateria('85', 'musica', '1');
-    // console.log('Nueva materia creada con el  ID:', nuevaMateria);
+    const newUserId = await userService.createAlumno('Rosalba' );
+    console.log('Crear Alumno con ID:', newUserId);
 
-    // // Obtener todos los usuarios
-    // const alumno = await alumnoService.getAllAlumnos();
-    const calificacionNueva = await calificacionService.getAllCalificaciones();
-    // console.log('Todos los alumnos:', alumno);
-    console.log('Todos los alumnos:', calificacionNueva);
-    // const materias = await materiaService.getAllMaterias();
-    // console.log('todas las materias:', materias);
+    // Crear un nuevo usuario
+    const nuevaMateria = await materiaService.createMateria('100', 'musica', '1');
+    console.log('Nueva materia creada con el  ID:', nuevaMateria);
 
-    // // Obtener un usuario por ID
-    // const usaer =await userService.getAlumnoById(1);
-    // //const user = await  userService.getAlumnoById(newUserId);
-    // console.log('Usuario con ID', newUserId, ':', usaer);
-    // // Obtener un usuario por ID
-    // const materia = await materiaService.getMateriaById(nuevaMateria);
-    // console.log('materia con ID', materia);
+    // Obtener todos los usuarios
+    const alumno = await userService.getAllAlumnos();
+    console.log('Todos los alumnos:', alumno);
+    const materias = await materiaService.getAllMaterias();
+    console.log('todas las materias:', materias);
 
-    // // Actualizar un usuario
-    // const newUserId2 = await userService.updateAlumno('Alan', 'Lopez', '45124512454', 'APROBADO', 464);
-    // console.log('Actualizar alumno:', newUserId2);
-    // // Actualizar un usuario
-    // const actualizarMateria = await materiaService.updateMateria('60', 'ivan');
-    // console.log('Materia actualizada con ID:', actualizarMateria.id_Materia);
-    // console.log(actualizarMateria.message);
+    // Obtener un usuario por ID
+    const usaer =await userService.getAlumnoById(1);
+    //const user = await  userService.getAlumnoById(newUserId);
+    console.log('Usuario con ID', newUserId, ':', usaer);
+    // Obtener un usuario por ID
+    const materia = await materiaService.getMateriaById(nuevaMateria);
+    console.log('materia con ID', materia);
 
-    // // Obtener el usuario actualizado
-    // await materiaService.getMateriaById(nuevaMateria);
-    // console.log('Materia actualizada con el  ID', actualizarMateria.id_Materia);
+    // Actualizar un usuario
+    const newUserId2 = await userService.updateAlumno('Alan', 'Lopez', '45124512454', 'APROBADO', 464);
+    console.log('Actualizar alumno:', newUserId2);
+    // Actualizar un usuario
+    const actualizarMateria = await materiaService.updateMateria('60', 'ivan');
+    console.log('Materia actualizada con ID:', actualizarMateria.id_Materia);
+    console.log(actualizarMateria.message);
 
-    // // Eliminar un usuario
-    // const borrar = await materiaService.borrarMateria('77');
-    // console.log('Materia borrada con el ID:', borrar.id);
-    // console.log(borrar.message);
+    // Obtener el usuario actualizado
+    await materiaService.getMateriaById(nuevaMateria);
+    console.log('Materia actualizada con el  ID', actualizarMateria.id_Materia);
 
-    // // Verificar si el usuario fue eliminado
-    // const deletedmateria = await materiaService.getMateriaById(borrar.id);
-    // console.log('materia con  ID', borrar.id, 'after deletion:', deletedmateria);
-    // console.error('Error:', error.message);
+    // Eliminar un usuario
+    const borrar = await materiaService.borrarMateria('77');
+    console.log('Materia borrada con el ID:', borrar.id);
+    console.log(borrar.message);
 
-    // // Crear un nuevo
-    // const newCalificacionId = await calificacionService.createCalificacion(
-    //   "13.0"
-    // );
-    // console.log("Calificaciones creadas con el ID: ", newCalificacionId);
+    // Verificar si el usuario fue eliminado
+    const deletedmateria = await materiaService.getMateriaById(borrar.id);
+    console.log('materia con  ID', borrar.id, 'after deletion:', deletedmateria);
+    console.error('Error:', error.message);
 
-    // // Obtener todo
-    // const calificaciones = await calificacionService.getAllCalificaciones();
-    // console.log("Todas las calificaciones: ", calificaciones);
+    // Crear un nuevo
+    const newCalificacionId = await calificacionService.createCalificacion(
+      "13.0"
+    );
+    console.log("Calificaciones creadas con el ID: ", newCalificacionId);
 
-    // // Obtener todos los por ID
-    // const calificaciones2 = await calificacionService.getCalificacionById(196);
-    // console.log("Calificaciones con el ID", ":", calificaciones2);
+    // Obtener todo
+    const calificaciones = await calificacionService.getAllCalificaciones();
+    console.log("Todas las calificaciones: ", calificaciones);
 
-    // // Actualizar un usuario
-    // await calificacionService.updateCalificacion(newCalificacionId, "8.0");
-    // console.log("Calificaciones actualizadas con el ID:", newCalificacionId);
+    // Obtener todos los por ID
+    const calificaciones2 = await calificacionService.getCalificacionById(196);
+    console.log("Calificaciones con el ID", ":", calificaciones2);
 
-    // // Eliminar un usuario
-    // await calificacionService.deletedCalificacion(newCalificacionId);
-    // console.log("Calificaciones eliminadas con el ID:", newCalificacionId);
-    // const deletedCalificacion = await calificacionService.getCalificacionById(newCalificacionId);
-    // console.log("User with ID", newCalificacionId, "after deletion:", deletedCalificacion);
+    // Actualizar un usuario
+    await calificacionService.updateCalificacion(newCalificacionId, "8.0");
+    console.log("Calificaciones actualizadas con el ID:", newCalificacionId);
+
+    // Eliminar un usuario
+    await calificacionService.deletedCalificacion(newCalificacionId);
+    console.log("Calificaciones eliminadas con el ID:", newCalificacionId);
+    const deletedCalificacion = await calificacionService.getCalificacionById(newCalificacionId);
+    console.log("User with ID", newCalificacionId, "after deletion:", deletedCalificacion);
     
     // // Crear un nuevo usuario
     // const newMaestro = await maestrosService.createMaestro('John', 'Doe', 1, 1);

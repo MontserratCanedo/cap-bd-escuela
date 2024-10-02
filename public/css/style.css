@@ -7,6 +7,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 /* 
 body {
   font-family: "Roboto", "sans-serif";
@@ -16,6 +17,11 @@ body {
 
 body {
   font-family: 'Raleway', sans-serif;
+
+
+body {
+  font-family: "Roboto", "sans-serif";
+
   overflow: hidden;
   background-color: #f0f8ff;
 }

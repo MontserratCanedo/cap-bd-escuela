@@ -1,4 +1,4 @@
-export default class ConstTeachers extends HTMLElement {
+class ConstTeachers extends HTMLElement {
     constructor() {
         super();
         this.shadowDOM = this.attachShadow({ mode: 'open' });
@@ -279,3 +279,5 @@ th {
     }
 }
 
+
+window.customElements.define('form-teacher', ConstTeachers);

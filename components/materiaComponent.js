@@ -1,4 +1,4 @@
-export default class CostMateria extends HTMLElement {
+class CostMateria extends HTMLElement {
     constructor() {
         super();
         this.shadowDOM = this.attachShadow({ mode: 'open' });
@@ -259,5 +259,5 @@ th {
         this.shadowDOM.appendChild(form);
     }
 }
+window.customElements.define('form-materias', CostMateria);
 
-// window.customElements.define('form-materias', CostMateria);
