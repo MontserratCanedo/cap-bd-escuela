@@ -1,7 +1,8 @@
-const materiaService = require('./services/materiasService'); //guardamos en una variable, los métodos exportados en alumnosServices
-const calificacionService = require("./services/calificacionesService"); //guardamos en una variable, los métodos exportados en alumnosServices
-const maestrosService = require('./services/maestrosService.js'); //guardamos en una variable, los métodos exportados en alumnosServices
-const db = require('./utils/conexion'); //guardamos en una variable, la conexion a la BD
+const alumnoService = require('./services/alumnosService.js')
+const materiaService = require('./services/materiasService'); 
+const calificacionService = require("./services/calificacionesService"); 
+const maestrosService = require('./services/maestrosService.js');
+const db = require('./utils/conexion'); 
 
 // Ejemplos de uso
 const runExamples = async () => {
@@ -74,32 +75,32 @@ const runExamples = async () => {
     const deletedCalificacion = await calificacionService.getCalificacionById(newCalificacionId);
     console.log("User with ID", newCalificacionId, "after deletion:", deletedCalificacion);
     
-    // Crear un nuevo usuario
-    const newMaestro = await maestrosService.createMaestro('John', 'Doe', 1, 1);
-    console.log('Create maestro:', newMaestro);
+    // // Crear un nuevo usuario
+    // const newMaestro = await maestrosService.createMaestro('John', 'Doe', 1, 1);
+    // console.log('Create maestro:', newMaestro);
 
-    // Obtener todos los usuarios
-     const maestros = await maestrosService.getAllMaestros();
-    console.log('All maestros', maestros); 
+    // // Obtener todos los usuarios
+    //  const maestros = await maestrosService.getAllMaestros();
+    // console.log('All maestros', maestros); 
 
-     const maestrosByID = await maestrosService.getMaestrosById(1);
-    console.log('Maestro con el ID', maestrosByID );
+    //  const maestrosByID = await maestrosService.getMaestrosById(1);
+    // console.log('Maestro con el ID', maestrosByID );
     
-    // Actualizar un usuario
-    await maestrosService.updateMaestro(9, 'Sandra', 'Lb');
-    // Eliminar un usuario
-    const deletedMaestro = await maestrosService.deleteMaestro(45);
-    //Obtener el usuario actualizado
-    const updatedUser = await userService.updateAlumno(newUserId2);
-    console.log('Actualizar alumno con ID', newUserId2, ':', updatedUser);
+    // // Actualizar un usuario
+    // await maestrosService.updateMaestro(9, 'Sandra', 'Lb');
+    // // Eliminar un usuario
+    // const deletedMaestro = await maestrosService.deleteMaestro(45);
+    // //Obtener el usuario actualizado
+    // const updatedUser = await userService.updateAlumno(newUserId2);
+    // console.log('Actualizar alumno con ID', newUserId2, ':', updatedUser);
 
-    //Eliminar un usuario
-    const borrarAlumno = await userService.deleteAlumno(1);
-    console.log('Borrar Alumno  por ID:', newUserId, 'Affected rows:', borrarAlumno);
+    // //Eliminar un usuario
+    // const borrarAlumno = await userService.deleteAlumno(1);
+    // console.log('Borrar Alumno  por ID:', newUserId, 'Affected rows:', borrarAlumno);
   
-    //Verificar si el usuario fue eliminado
-    const deletedUser = await userService.getAlumnoById(newUserId);
-    console.log('Verificación de alumno eliminado', newUserId, 'after deletion:', deletedUser); // Debería ser null o undefined
+    // //Verificar si el usuario fue eliminado
+    // const deletedUser = await userService.getAlumnoById(newUserId);
+    // console.log('Verificación de alumno eliminado', newUserId, 'after deletion:', deletedUser); // Debería ser null o undefined
   } catch (error) {
     console.error('Error:', error.message); //captura el error y lo muestra
   } finally {

@@ -8,8 +8,20 @@
   box-sizing: border-box;
 }
 
+/* 
 body {
   font-family: "Roboto", "sans-serif";
+  overflow: hidden;
+  background-color: #f0f8ff;
+} */
+
+body {
+  font-family: 'Raleway', sans-serif;
+
+
+body {
+  font-family: "Roboto", "sans-serif";
+
   overflow: hidden;
   background-color: #f0f8ff;
 }

@@ -279,4 +279,5 @@ th {
     }
 }
 
+
 window.customElements.define('form-teacher', ConstTeachers);

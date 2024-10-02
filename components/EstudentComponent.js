@@ -290,4 +290,6 @@ th {
     }
 }
 
+}
+
 window.customElements.define('form-estudents', TableEstudents);

@@ -1,5 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <title>CRUDDDD Materias</title>
+</head>
+
+<body>
+    <script type="module">
+        import menuBarElement from '../components/menu-bar.js';
+        import calificacionesComponent from '../components/calificacionesComponent.js';
+        import materiasComponent from '../components/materiaComponent.js';
+        import alumnosComponent from '../components/EstudentComponent.js';
+        import maestrosComponent from '../components/TeacherComponent.js';
+        
+        function createMenuBarComponent() {
+            let body = document.querySelector('body');
+
+            let menuBarComponent = document.createElement('menu-bar-element');
+
+            body.append(menuBarComponent);
+        }
+
+        
+
+        function createMateriaComponent() {
+            let body = document.querySelector('body');
+
+            let materiaComponent = document.createElement('form-materia');
+
+            body.append(materiaComponent);
+        }
+
+        function createAlumnoComponent() {
+            let body = document.querySelector('body');
+
+            let alumnoComponent = document.createElement('form-alumno');
+
+            body.append(alumnoComponent);
+        }
+
+        function createMaestroComponent() {
+            let body = document.querySelector('body');
+
+            let maestroComponent = document.createElement('form-maestro');
+
+            body.append(maestroComponent);
+        }
+
+        createMenuBarComponent();
+
+        // createCalificacionComponent();
+        // createMateriaComponent();
+        // createAlumnoComponent();
+        // createMaestroComponent();
+
+        window.customElements.define('menu-bar-element', menuBarElement);
+        // window.customElements.define('form-calificacion', calificacionesComponent);
+        // window.customElements.define('form-materia', materiaComponent);
+        // window.customElements.define('form-alumno', alumnoComponent);
+        // window.customElements.define('form-maestro', maestroComponent);
+      
+        /* document.getElementById("calificaciones").addEventListener("click", () =>{
+          createCalificacionComponent();
+        }); */
+
+    </script>
+</body>
+
+</html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,3 +204,4 @@
     <component-table></component-table>
 </body>
 </html>
+
