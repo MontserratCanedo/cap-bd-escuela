@@ -110,6 +110,6 @@ const runExamples = async () => {
     db.end(); // Cierra la conexión a la base de datos
   }
  }
-};
+;
 
 runExamples();
