@@ -256,7 +256,7 @@ export default class CostCalificaciones extends HTMLElement {
     this.shadowDOM.appendChild(form);
   }
 
- 
+}
 class CostCalificaciones extends HTMLElement {
     constructor() {
         super();
